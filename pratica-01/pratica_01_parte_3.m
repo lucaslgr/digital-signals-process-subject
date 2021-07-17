@@ -9,6 +9,7 @@ clc
 
 %Para comparação de desempenho com método não recursivo
 calcAndPlotConfirmedCasesApplyingMovingAverage(50);
+calcAndPlotConfirmedCasesApplyingMovingAverage(50);
 
 
 function [data] = getDataIntegersFromText(url, delimiter)
