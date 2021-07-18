@@ -22,15 +22,18 @@ function [dataFiltered] = applyMovingAverageFilterRecursively(data, slidingWindo
 
     N = length(data);
     dataFiltered = zeros(1, N);
+    
+    yLast = 0;
+    xLast = 0;
 
     for i=1:N
-        if (i == 1)
-            dataFiltered(i) = data(i)*(1/M);
-        elseif (i <= M)
-            dataFiltered(i) = dataFiltered(i - 1) + (data(i)*(1/M));
-        else
-            dataFiltered(i) = dataFiltered(i - 1) + (data(i) - data(i - M))*(1/M);        
+        dataFiltered(i) = yLast + (data(i) - xLast)*(1/M);
+        
+        if (i > M)
+            xLast = data(i - M);
         end
+        
+        yLast = dataFiltered(i);
     end
     toc
 end
