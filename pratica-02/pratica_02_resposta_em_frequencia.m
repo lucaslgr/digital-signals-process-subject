@@ -19,7 +19,7 @@ Den = [1 -Beta*(1+Alfa) Alfa]; %Coeficientes do polinômio do denominador da fç d
 Hejw = (Num(1) + Num(2)*exp(-1i*w) + Num(3)*exp(-1i*2*w)) ./(Den(1) + Den(2)*exp(-1i*w) + Den(3)*exp(-1i*2*w));
 Hmodulo = abs(Hejw); %Cálculo da resposta em módulo
 %Hfase = (180/pi)*atan(imag(Hejw), real(Hejw)); %Cálculo da resposta em fase
-Hfase = (180/pi)*atan(real(Hejw) + imag(Hejw)); %Cálculo da resposta em fase
+Hfase = (180/pi)*atan2(imag(Hejw), real(Hejw)); %Cálculo da resposta em fase
  
 % EXIBIÇÃO DOS RESULTADOS (será utilizada a frequência em Hz nos resultados)
 figure();
